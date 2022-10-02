@@ -1,0 +1,1722 @@
+Script started on 2022-09-14 02:52:16-04:00
+
+
+1)
+[guoman@sjsu ~]$ mkdir A1
+[guoman@sjsu ~]$ cd A1
+[guoman@sjsu A1]$ pwd
+/home/guoman/A1
+
+
+2)/home/guoman is my home directory path, use cd ~ and pwd commands to find it
+[guoman@sjsu A1]$ cd ~
+[guoman@sjsu ~]$ pwd
+/home/guoman
+
+3)UID is 1022, belong to 1022 group
+[guoman@sjsu ~]$ id
+uid=1022(guoman) gid=1022(guoman) groups=1022(guoman)
+[guoman@sjsu ~]$ id -g
+1022
+
+
+4)cannot cd to temp but can use ls ls-l, because only exucute permission is delayed, I can stll read and write. I can not create a file under the temp directory.
+[guoman@sjsu ~]$ mkdir temp
+[guoman@sjsu ~]$ chmod 677 temp
+[guoman@sjsu ~]$ cd temp
+bash: cd: temp: Permission denied
+
+[guoman@sjsu ~]$ ls temp
+[guoman@sjsu ~]$ ls -l temp
+total 0
+[guoman@sjsu ~]$ touch temp/test.txt
+touch: cannot touch 'temp/test.txt': Permission denied
+
+
+
+
+5)yes I can copy a directory. If i want to copy the rntire directory, use cp -r
+[guoman@sjsu ~]$ 
+[guoman@sjsu ~]$ mkdir temp2
+[guoman@sjsu ~]$ mv temp2 temp3
+[guoman@sjsu ~]$ cp -r temp3 temp4
+[guoman@sjsu ~]$ 
+
+
+6)Yes. meminfo contains memory information and cpuinfo contains cpu information.
+[guoman@sjsu ~]$ cd /proc
+[guoman@sjsu proc]$ ls
+1       1301     1561     1838495  216     366     528017  786
+10      1302     1562     1838502  2161    367     529     7868
+100     1303     1564     1838536  2162    3676    53      787
+1001    1304     1565     1838552  2163    368     530     788
+1002    1305     1566     1838553  2164    37      530186  7880
+1003    1307     1567     1838603  2166    370     531     789
+1004    1308     1568     1838618  217     371     531597  79
+1005    1309     1569     1838630  2172    372     533     790894
+1007    131      157      1838632  2174    373     533874  791
+1008    1310     1570     1838668  2178    374     534     792
+1009    1311     1571     1838717  2179    374649  535     793
+101     1313     1572     1838741  218     376     535350  794
+1010    1314     1573     1838742  2180    37666   535627  7940
+1011    1315     1577     1838823  2181    377     535697  795
+1013    1316     1578     1838845  2182    3770    535704  797
+1014    1317     1579     1838871  2183    3771    535908  798
+1015    1319     158      1838872  2184    3774    536     799
+1016    132      1583775  1838912  2185    378     536086  8
+1017    1320     16       1838919  2186    3784    536328  80
+1019    1321     160      1838937  2189    3787    536650  800
+102     1322     161      1838959  22      3789    53684   801
+1020    1323     162      1838965  220     379     536969  803
+1021    1325     163      1839002  2200    3792    537     804
+1022    1326     164      1839003  2202    3793    537933  805
+1023    1327     166      1839026  2204    38      539     806
+1025    1328     167      1839032  2206    380     539825  807
+1026    1329     168      1839033  2208    38133   54      807205
+1027    133      1684     1839035  221     382     540     807226
+1028    1331     1685     1839050  2210    3822    540251  809
+1029    1332     1686     1839081  2211    3823    540851  810
+103     1333     1687     1839102  2214    383     541     8106
+1031    1334     1689     1839103  222     3831    541121  811
+1032    1335     169      1839120  2222    38375   541476  812
+1033    1337     1690     1839128  2223    384     541662  813
+1034    1338     1691     1839142  2224    3844    542     815
+1035    1338500  17       1839151  2226    385     543     816
+1037    1338610  170      1839166  2227    3858    5433    817
+1038    1338879  1712825  1839171  2228    386     545     818
+1039    1339     1713496  1839222  2229    3860    546     819
+104     1339522  172      1839229  223     3863    547     82
+1040    134      1722847  1839266  2231    38655   548     821
+1041    1340     1728185  1839295  2235    388     54895   822
+1043    1341     1728353  1839297  2237    3889    549     823
+1044    1343     1728606  1839312  224     389     55      824
+1045    1344     1728721  1839316  2240    390     551     825
+1046    1344243  1728758  1839320  2243    3908    552     827
+1047    1345     1728982  1839344  226     391     55286   828
+1049    1346     1729111  1839365  2266    3912    553     829
+1050    1347     1729136  1839386  2267    392     554     83
+1051    1347045  1729138  1839402  2268    394     555     830
+1052    1348147  1729630  1839408  2269    395     557     831
+1053    1349     173      1839431  227     396     558     833
+1055    1350     1730159  1839475  2270    3963    559     834
+1056    1351     1731204  1839495  2274    3964    56      835
+1057    1352     1731627  1839496  2275    3966    560     83572
+1058    1353     1732653  1839511  228     397     561     836
+1059    1355     1732960  1839541  229     3979    563     837
+106     1356     1733587  1839563  23      398     564     839
+1061    1357     1734320  1839583  230     3981    564709  84
+1062    1358     1734656  1839585  2318    3986    565     840
+1063    1359     1736877  1839599  232     3987    566     841
+1064    136      1736949  1839600  2327    3989    567     842
+1065    1360526  1737034  1839607  233     3999    569     843
+1067    1361     1737184  1839623  234     4       570     8443
+1068    1361073  1737295  1839645  2347    40      571     845
+1069    1361160  1737336  1839651  2348    400     572     846
+107     1362     174      1839652  2349    4001    573     847
+1070    1363     1745918  1839668  235     4006    5745    847118
+1071    1364     1746128  1839669  2350    4009    575     848
+1073    1364919  175      1839675  2351    401     576     849
+1074    1365     1751127  1839676  2352    402     577     85
+1075    1366182  1751600  1839691  2353    4020    578     851
+1076    1366584  1751818  1839697  2355    403     57888   852
+1077    1367     1751841  1839699  2356    4030    579     853
+1079    1367522  1757213  1839720  2357    404     57900   854
+108     1368     1757556  1839722  2359    406     58      855
+1080    1368471  1759156  1839737  236     407     580041  857
+1081    1368529  176      1839744  2360    408     581     858
+1082    1368736  1766319  1839759  2362    409     582     859
+10828   1369     1767959  1839768  2369    41      583     86
+1083    137      1770129  1839783  238     410     584     860
+1085    1370     1770994  1839784  239     4118    584724  861
+1086    1370064  1774027  1839806  2394    412     585     862552
+1087    1370078  1774363  1839812  24      413     587     863
+1088    1370564  1774438  1839814  240     414     588     864
+1089    1371     1777163  1839835  241     41458   589     865
+109     1371694  1777180  1839850  242     41467   58918   866
+1091    1373     1777259  1839857  2434    415     59      867
+1092    1373187  1777970  1839880  244     41501   590     869
+1093    1374     1778479  1839898  245     4152    591     870
+1094    1375     1779132  1839899  246     416     59123   870762
+1095    1376     178      1839906  247     4166    593     871
+1097    1377     1784662  184      2475    418     594     871028
+1098    1379     1785748  1840027  248     419     595     872
+109811  138      1786029  1840114  25      41940   596     873
+1099    1380     1789358  1840299  250     41942   597     875
+11      1381     1789576  1840517  251     42      599     8757
+110     1382     179      1840654  252     420     6       876
+1100    1383     1790240  1840688  2523    4201    60      877
+1101    1384010  1790549  1840896  253     421     600     878
+1103    1385     1790707  1841106  254     421306  601     879
+1104    1386     1790710  1841145  256     422     602     88
+1105    1387     1790732  1841240  257     42239   603     881
+1106    1388     1790921  1841312  258     422666  605     88115
+1107    1388202  1790928  1841313  259     424     6054    881983
+1109    1389     1790992  1841370  26      4243    606     882
+1110    139      1791386  1841410  260     425     607     883
+1111    1390227  1792077  1841454  262     426     608     884
+1112    1391     1795035  1841532  263     4268    609     884223
+1113    1392     1796221  1841534  264     427     61      885
+1115    1393     1796304  1841761  265     4270    611     887
+1116    1394     1798141  1841789  266     428     611412  888
+1117    1395     1798204  1841978  268     43      612     889
+1118    1397     1798336  1842006  2686    430     612040  89
+1119    1398     1798355  1842058  2687    43097   613     890
+112     1399     1798622  1842210  269     431     614     891
+1121    14       18       1842237  2699    432     615     893
+1122    140      180      1842276  270     43257   617     894
+1123    1400     1800219  1842334  2704    43264   617147  895
+1124    1401     1801993  1842437  271     433     618     896
+1125    1402184  1802422  1842478  2714    4331    619     896898
+1127    1402186  1804460  1842574  2719    434     62      897
+1128    1403     1805322  1842657  272     434753  620     899
+1129    1404     1807200  1842920  2725    435505  621     9
+113     1405     1807827  1842963  2726    436     623     90
+1130    1405116  1807842  1843058  2727    437     624     900
+1131    1406     1807893  1843118  2728    438     625     901
+1133    1406247  1809002  1843180  2729    439     626     902
+1134    1406249  1809769  1843376  2730    44      627     903
+1135    1406294  181      1843380  2731    440     629     905
+1136    1406295  1810742  1843382  2732    442     630     906
+1137    1407     1810862  1843388  2733    443     631     907
+1139    1407388  1811831  1843390  2734    444     632     908
+114     1407734  1812304  1843498  2735    445     633     909
+1140    1407763  1813581  1843539  2736    446     635     91
+1141    1409     1814701  1843554  2737    44698   636     911
+1142    1410     1814728  1843599  2738    44700   63662   912
+1143    1411     1814999  1843645  2739    448     637     913
+1145    1412     1815187  1843694  274     44811   638     914
+1146    1413     1815309  1843708  2740    44903   639     915
+1147    1415     1815684  1843731  2741    449126  64      917
+11472   1416     1815736  1843756  2742    450     640768  917694
+1148    1417     1815836  1843796  2743    45032   641     918
+1149    1418     1816215  1843828  2744    45038   642     919
+115     1419     1817278  1843866  2745    45062   643     92
+1151    142      1817284  1843913  2746    451     644     920
+1152    1421     1817500  1843914  2747    45176   645     9206
+1153    1422     1818155  1843933  2748    45177   647     921
+1154    1423     182      1844147  2749    452     648     923
+1155    1424     1820314  1844167  275     452019  649     924
+1157    1425     1823016  1844275  2750    453     65      925
+1158    1427     1823033  1844327  2751    455     650     926
+1159    1427336  1823213  1844410  2752    456     650230  927
+116     1427386  1823605  1844412  2753    45636   651     929
+1160    1427660  1823662  1844432  2754    457     65267   930
+1161    1427685  1824772  1844507  2758    45710   653     931
+1163    1427747  1824788  1844513  2759    458     65305   932
+1164    1428     1824794  1844532  276     458660  654     933
+1165    1429     1825399  1844534  2760    459     655     935
+1166    143      1825436  1844535  2761    45982   656     936
+1167    1430     1825558  1844580  2762    46      657     937
+1169    1431     1826275  1844581  2764    460128  659     938
+1170    1433     1826296  1844621  2765    46089   66      939
+1171    1433023  1826408  1844652  2766    46098   660     94
+1172    1433131  1826471  1844657  2767    461     661     941
+1173    1433161  1826543  1844714  2768    46181   662     942
+1175    1433531  1826882  1844754  2769    462     663     943
+1176    1434     1826959  1844761  277     46260   665     944
+1177    1434161  1827511  1844783  2770    463     666     945
+1178    1434395  1828228  1844787  2772    46327   667     947
+1179    1435     1828339  1844801  2773    464     668     948
+118     1436     1828393  1844803  2774    465     6684    949
+1181    1437     1828437  1844809  2776    46682   66843   95
+1182    1437388  1828438  1844899  2777    46699   669     950
+1183    1439     1828458  1844906  2779    467     67      951
+1184    1439351  1828716  1844985  278     46712   671     953
+1185    144      1828986  1844991  2789    46713   6712    954
+1187    1440     1829274  1845007  2799    467468  672     955
+1188    1441     1829533  1845014  28      467840  673     956
+1189    1442     1829578  1845030  280     468     674     957
+119     1443     1829623  1845037  2801    46877   675     959
+1190    1444080  1829651  1845083  2802    46878   677     96
+1191    1445     1830263  1845118  2804    469     678     960
+1193    1446     1830265  1845124  2808    46955   679     961
+1194    1447     1830373  1845138  281     46990   68      962
+1195    1448     1830685  1845139  282     46993   680     963
+11952   1449     1830752  1845147  2829    47      681     965
+1196    145      1831103  1845164  283     470     683     966
+1197    1451     1831137  1845253  2831    470115  684     967
+1199    1452     1831343  1845267  2832    471     685     968
+12      1453     1831551  1845294  2833    471410  686     969
+120     1454     1831928  1845295  2834    472969  687     97
+1200    1455     1832254  1845301  2838    473     6882    971
+1201    1457     1832433  1845306  2839    473175  689     972
+1202    1458     1832455  1845307  284     474     690     973
+1203    1459     1832516  1845309  2849    475     691     974
+1205    146      1832715  1845310  2855    475312  692     975
+1206    1460     1832769  1845354  2859    476     693     977
+1207    1461     1832817  1845355  286     477     695     978
+1208    1463     1832897  1845356  287     477089  696     979
+1209    1464     1832995  1845362  2872    4772    697     98
+121     1465     1833015  1845376  288     477304  698     980
+1211    1466     1833178  1845382  289     479     699     981
+1212    1467     1833428  1845383  29      479278  70      983
+1213    1469     1833434  1845384  290     479582  701     984
+1214    1470     1833724  1845386  2914    48      702     985
+1215    1471     1833742  1845388  291889  480     703     986
+1217    1472     1833770  1845389  292     481     704     987
+1218    1473     1833853  1845418  293     482     705     989
+1219    1475     1834011  1845420  294     483     707     990
+122     1476     1834041  1845458  295     484261  708     991
+1220    1477     1834043  1845470  296     485     709     992
+1221    1478     1834063  1845479  298     486     71      993
+1223    1479     1834107  1845510  299     487     710     995
+1224    148      1834178  1845530  3       488     711     996
+1225    1481     1834311  1845531  30      489     713     997
+1226    1482     1834334  1845548  300     49      714     998
+1227    1483     1834399  1845554  301     49037   715     999
+1229    1484     1834471  185      302     491     716     99943
+1230    1485     1834553  186      304     491588  7161    buddyinfo
+1231    1487     1834572  187      305     49171   717     bus
+1232    1488     1834693  188      306     492     719     cgroups
+1233    1489     1834787  19       307     493     72      cmdline
+1235    149      1834879  190      308     493740  720     consoles
+1236    1490     1834902  191      31      494     721     cpuinfo
+1237    1491     1834963  192      310     495     722     crypto
+1238    1493     1835056  193      311     49680   723     devices
+1239    1494     1835214  194      312     497     725     device-tree
+124     1495     1835272  196      313     49747   726     diskstats
+1241    1496     1835472  1962     314     49752   7266    dma
+1242    1497     1835823  197      316     498     727     driver
+1243    1499     1835897  198      317     49860   728     execdomains
+1244    15       1836036  199      318     499     729     fb
+1245    150      1836059  1990     319     499870  73      filesystems
+1247    1500     1836085  1992     32      499880  731     fs
+1248    1501     1836150  1993     320     50      732     interrupts
+1249    1502     1836193  1995     32077   500     733     iomem
+125     1503     1836329  1997     322     501     734     ioports
+1250    1505     1836487  1998     323     50107   735     irq
+1251    1506     1836535  1999     324     50265   737     kallsyms
+1253    1507     1836569  2        325     503     738     kcore
+1254    1508     1836629  20       326     504     739     keys
+1255    1509     1836693  200      3270    504280  74      key-users
+1256    151      1836829  2002     3273    505     740     kmsg
+1257    1511     1836857  2004     3279    505371  741     kpagecgroup
+125853  1512     1836917  2006     328     506     743     kpagecount
+1259    1513     1837500  2007     329     5062    744     kpageflags
+126     1514     1837516  2010     330     507     745     loadavg
+1260    1515     1837632  2011     331     509     746     locks
+1261    1517     1837634  2015     332     510     747     mdstat
+1262    1518     1837650  2017     334     510324  749     meminfo
+1263    1519     1837694  202      335     511     750     misc
+1265    152      1837701  2020     336     51113   751     modules
+1266    1520     1837769  2024     337     5115    752     mounts
+1267    1521     1837790  203      338     511586  753     net
+1268    1523     1837815  2031     34      512     7532    pagetypeinfo
+1269    1524     1837850  2033     340     513     755     partitions
+127     1525     1837858  2035     341     513190  756     powerpc
+1271    1526     1837873  2036     342     513334  757     ppc64
+1272    1527     1837916  2037     343     513457  758     rtas
+1273    1529     1837964  2039     344     514315  759     sched_debug
+1274    1530     1837970  204      346     514693  76      schedstat
+1275    1531     1837986  2041     3464    515     761     scsi
+1277    1532     1838019  2042     3465    516     762     self
+1278    1533     1838039  2043     347     517     763     slabinfo
+1279    1535     1838041  2045     3477    517344  764     softirqs
+128     1536     1838060  2047     348     517574  765     stat
+1280    1537     1838083  2048     349     517658  767     swaps
+1281    1538     1838102  2049     3490    517659  768     sys
+1283    1539     1838104  205      35      518     769     sysrq-trigger
+1284    154      1838249  206      350     518077  77      sysvipc
+1285    1541     1838265  208      352     519     770     thread-self
+1286    1542     1838272  209      3521    52      771     timer_list
+1287    1543     1838297  210      3526    520799  773     tty
+1289    1544     1838298  211      353     521     774     uptime
+1290    1545     1838313  212      354     521075  775     version
+1291    1547     1838319  2122     355     5212    776     vmallocinfo
+1292    1548     1838357  2123     356     522     777     vmstat
+1293    1549     1838364  2125     358     522024  779     zoneinfo
+1295    155      1838366  2126     359     523     7794
+1296    1550     1838380  214      36      524     78
+1297    1553     1838384  215      360     524080  780
+1298    1558     1838391  2150     361     524305  781
+1299    1559     1838414  2152     362     525     782
+13      156      1838449  2153     364     527     783
+130     1560     1838458  2155     365     528     785
+
+
+7)Total memory is 73080640 kB
+[guoman@sjsu proc]$ head meminfo
+MemTotal:       73080640 kB
+MemFree:         6078592 kB
+MemAvailable:   56216768 kB
+Buffers:            4224 kB
+Cached:         52209536 kB
+SwapCached:        40192 kB
+Active:         51256576 kB
+Inactive:        1374208 kB
+Active(anon):     811072 kB
+Inactive(anon):   999360 kB
+
+
+
+
+8)256 processors.
+Name is POWER8.
+speed is 3.525GHz 
+
+[guoman@sjsu proc]$ head cpuinfo
+processor	: 0
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 1
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+[guoman@sjsu proc]$ tail cpuinfo
+processor	: 255
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+timebase	: 512000000
+platform	: pSeries
+model		: IBM,8286-42A
+machine		: CHRP IBM,8286-42A
+MMU		: Hash
+[guoman@sjsu proc]$  cat cpuinfo
+processor	: 0
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 1
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 2
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 3
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 4
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 5
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 6
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 7
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 8
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 9
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 10
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 11
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 12
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 13
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 14
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 15
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 16
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 17
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 18
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 19
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 20
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 21
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 22
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 23
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 24
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 25
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 26
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 27
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 28
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 29
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 30
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 31
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 32
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 33
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 34
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 35
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 36
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 37
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 38
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 39
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 40
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 41
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 42
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 43
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 44
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 45
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 46
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 47
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 48
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 49
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 50
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 51
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 52
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 53
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 54
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 55
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 56
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 57
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 58
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 59
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 60
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 61
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 62
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 63
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 64
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 65
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 66
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 67
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 68
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 69
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 70
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 71
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 72
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 73
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 74
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 75
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 76
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 77
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 78
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 79
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 80
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 81
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 82
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 83
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 84
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 85
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 86
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 87
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 88
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 89
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 90
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 91
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 92
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 93
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 94
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 95
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 96
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 97
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 98
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 99
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 100
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 101
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 102
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 103
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 104
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 105
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 106
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 107
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 108
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 109
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 110
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 111
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 112
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 113
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 114
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 115
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 116
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 117
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 118
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 119
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 120
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 121
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 122
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 123
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 124
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 125
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 126
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 127
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 128
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 129
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 130
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 131
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 132
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 133
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 134
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 135
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 136
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 137
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 138
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 139
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 140
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 141
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 142
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 143
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 144
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 145
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 146
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 147
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 148
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 149
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 150
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 151
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 152
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 153
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 154
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 155
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 156
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 157
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 158
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 159
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 160
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 161
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 162
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 163
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 164
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 165
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 166
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 167
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 168
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 169
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 170
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 171
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 172
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 173
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 174
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 175
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 176
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 177
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 178
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 179
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 180
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 181
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 182
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 183
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 184
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 185
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 186
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 187
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 188
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 189
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 190
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 191
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 192
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 193
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 194
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 195
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 196
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 197
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 198
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 199
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 200
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 201
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 202
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 203
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 204
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 205
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 206
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 207
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 208
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 209
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 210
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 211
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 212
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 213
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 214
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 215
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 216
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 217
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 218
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 219
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 220
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 221
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 222
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 223
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 224
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 225
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 226
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 227
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 228
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 229
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 230
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 231
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 232
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 233
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 234
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 235
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 236
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 237
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 238
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 239
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 240
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 241
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 242
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 243
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 244
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 245
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 246
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 247
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 248
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 249
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 250
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 251
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 252
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 253
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 254
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 255
+cpu		: POWER8 (architected), altivec supported
+clock		: 3525.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+timebase	: 512000000
+platform	: pSeries
+model		: IBM,8286-42A
+machine		: CHRP IBM,8286-42A
+MMU		: Hash
+
+[guoman@sjsu proc]$ lscpu
+Architecture:        ppc64le
+Byte Order:          Little Endian
+CPU(s):              256
+On-line CPU(s) list: 0-255
+Thread(s) per core:  8
+Core(s) per socket:  10
+Socket(s):           3
+NUMA node(s):        2
+Model:               2.1 (pvr 004b 0201)
+Model name:          POWER8 (architected), altivec supported
+Hypervisor vendor:   pHyp
+Virtualization type: para
+L1d cache:           64K
+L1i cache:           32K
+NUMA node0 CPU(s):   0-71,80-87,96-103,112-119,128-135,144-151,160-167,176-183,192-199,208-215,224-231,240-247
+NUMA node1 CPU(s):   72-79,88-95,104-111,120-127,136-143,152-159,168-175,184-191,200-207,216-223,232-239,248-255
+
+9)
+[guoman@sjsu proc]$ cd ~
+[guoman@sjsu ~]$ cp /home/test/A1/downloaded_hashtags_extend.csv A1
+[guoman@sjsu ~]$ cd A1
+[guoman@sjsu A1]$ du -sh downloaded_hashtags_extend.csv
+7.5M	downloaded_hashtags_extend.csv
+[guoman@sjsu A1]$ wc -l downloaded_hashtags_extend.csv
+110350 downloaded_hashtags_extend.csv
+
+
+
+10)
+[guoman@sjsu A1]$ grep -i great downloaded_hashtags_extend.csv|wc -w
+114
+
+
+11)
+[guoman@sjsu A1]$ echo aaa >> FILE
+[guoman@sjsu A1]$ file FILE
+FILE: ASCII text
+[guoman@sjsu A1]$ echo öäü >> FILE
+[guoman@sjsu A1]$ file FILE
+FILE: UTF-8 Unicode text
+
+
+12).
+[guoman@sjsu A1]$ iconv -f UTF-8 -t ascii downloaded_hashtags_extend.csv -o output.csv
+
+
+13)
+[guoman@sjsu A1]$ cat downloaded_hashtags_extend.csv|cut -d ',' -f1| uniq|wc -l
+362
+[guoman@sjsu A1]$ cat downloaded_hashtags_extend.csv|cut -d ',' -f4| uniq|wc -l
+66178
+[guoman@sjsu A1]$ cat downloaded_hashtags_extend.csv|cut -d ',' -f2| uniq|wc -l
+101804
+[guoman@sjsu A1]$ exit
+
+Script done on 2022-09-14 04:42:26-04:00 
